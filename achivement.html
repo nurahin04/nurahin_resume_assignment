@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Achievement</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background-image: url('https://i.pinimg.com/originals/dc/8e/06/dc8e064696b0bef20b0c44a12bbcc49c.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    color: #6a0d49;
+    position: relative;
+  }
+
+  h1 {
+    margin: 20px 0;
+    color: #9c2751;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1.2px;
+    user-select: none;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+  }
+
+  .container {
+    position: relative;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    position: absolute;
+    width: 320px;
+    max-height: 380px;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.35);
+    color: #2a003f;
+    overflow: auto;
+  }
+
+  .card img,
+  .card video {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+
+  .card.active {
+    opacity: 1;
+    transform: translateX(0);
+    position: relative;
+    z-index: 10;
+  }
+
+  .card.slide-out-left { transform: translateX(-100%); opacity: 0; z-index: 1; }
+  .card.slide-out-right { transform: translateX(100%); opacity: 0; z-index: 1; }
+  .card.slide-in-left, .card.slide-in-right { transform: translateX(0); opacity: 1; z-index: 10; }
+
+  button.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff85b3;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.6);
+    transition: background-color 0.3s ease;
+    z-index: 20;
+  }
+
+  button.nav-btn:hover {
+    background: #ff4d8c;
+  }
+
+  #prev-btn { left: -70px; }
+  #next-btn { right: -70px; }
+
+  .back-home {
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .back-home a {
+    background: #9c2751;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-home a:hover {
+    background: #6a0d49;
+  }
+
+  .sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.9;
+    animation: sparkleAnim 0.8s ease-out forwards;
+  }
+
+  @keyframes sparkleAnim {
+    0% {
+      transform: scale(1) translate(0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0) translate(var(--x), var(--y));
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>My Achievements</h1>
+
+<div class="container">
+  <button class="nav-btn" id="prev-btn">&#8249;</button>
+  <div id="cards-container"></div>
+  <button class="nav-btn" id="next-btn">&#8250;</button>
+</div>
+
+<div class="back-home">
+  <a href="sitinurahin.html">Back to Home</a>
+</div>
+
+<script>
+  const achievements = [
+    {
+      text: '👩‍🏫 Full attendance award',
+    },
+    {
+      text: '📚 GPA above 3.0 every semester',
+      img: 'https://i.postimg.cc/44V8zTn9/photo-2025-06-14-14-32-43.jpg'
+    },
+    {
+      text: '🥇 Ranked 1st in class during Form 6',
+      video: 'https://files.catbox.moe/p8fn9f.mp4'
+    },
+    {
+      text: '🏆 Best Subject Award in Form 6',
+    },
+    {
+      text: '🎯 CGPA 3.25 in Form 6',
+      img: 'https://i.postimg.cc/9FBJntdX/photo-2025-06-14-14-32-51.jpg',
+      video: 'https://files.catbox.moe/0pgod2.mp4'
+    }
+  ];
+
+  let currentIndex = 0;
+
+  const cardsContainer = document.getElementById('cards-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+
+  achievements.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.classList.add('card');
+    if (index === 0) card.classList.add('active');
+
+    let mediaHTML = '';
+    if (item.img) {
+      mediaHTML += `<img src="${item.img}" alt="Achievement Image">`;
+    }
+    if (item.video) {
+      mediaHTML += `<video src="${item.video}" controls></video>`;
+    }
+
+    card.innerHTML = `
+      ${mediaHTML}
+      <div>${item.text}</div>
+    `;
+
+    cardsContainer.appendChild(card);
+  });
+
+  const cards = document.querySelectorAll('.card');
+
+  function showCard(newIndex, direction) {
+    if (newIndex === currentIndex) return;
+
+    cards[currentIndex].classList.remove('active', 'slide-in-left', 'slide-in-right');
+    cards[currentIndex].classList.add(direction === 'next' ? 'slide-out-left' : 'slide-out-right');
+
+    cards[newIndex].classList.remove('slide-out-left', 'slide-out-right');
+    cards[newIndex].classList.add('active');
+    cards[newIndex].classList.add(direction === 'next' ? 'slide-in-right' : 'slide-in-left');
+
+    currentIndex = newIndex;
+
+    cards[currentIndex].addEventListener('transitionend', () => {
+      cards.forEach(c => c.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right'));
+    }, { once: true });
+
+    if (direction === 'next') triggerSparkles(cards[newIndex]);
+  }
+
+  function triggerSparkles(card) {
+    for (let i = 0; i < 10; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = '50%';
+      sparkle.style.top = '50%';
+      sparkle.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`);
+      sparkle.style.setProperty('--y', `${(Math.random() - 0.5) * 200}px`);
+      card.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 800);
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    let newIndex = currentIndex - 1;
+    if (newIndex < 0) newIndex = achievements.length - 1;
+    showCard(newIndex, 'prev');
+  });
+
+  nextBtn.addEventListener('click', () => {
+    let newIndex = (currentIndex + 1) % achievements.length;
+    showCard(newIndex, 'next');
+  });
+</script>
+
+</body>
+</html>
+
+

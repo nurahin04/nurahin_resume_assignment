@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>nurahin.html</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Full-page fixed background */
+    body {
+      font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background-image: url('https://i.pinimg.com/originals/af/2b/c2/af2bc2562b620cd327ae39478d924723.gif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+    }
+
+    /* Header */
+    .header {
+      padding: 30px;
+      text-align: center;
+      color: white;
+      font-size: 30px;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 200px;
+    }
+
+    /* Centered, shorter navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: rgba(243, 186, 217, 0.9);
+      padding: 10px;
+      border-radius: 50px;
+      width: fit-content;
+      margin: 0 auto; /* centers the navbar */
+    }
+
+    .navbar a, .dropbtn {
+      padding: 15px 20px;
+      color: black;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .navbar a:hover, .dropbtn:hover {
+      background-color: aliceblue;
+    }
+
+    .navbar a.active {
+      background-color: #ec6da2;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 60px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #fae0f8;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        border-radius: 0;
+        width: 100%;
+      }
+
+      .navbar a, .dropbtn {
+        width: 100%;
+        text-align: left;
+      }
+
+      .dropdown-content {
+        top: auto;
+        position: relative;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>A Warm Welcome To My Website</h1>
+    <p>Siti Nurahin binti Buseman</p>
+    <img src="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-05-25_00-08-10.jpg" alt="Avatar">
+  </div>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="about.html"><i class="fa fa-fw fa-question"></i> About</a>
+    <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a>
+    <a href="education.html"><i class="fa fa-fw fa-book"></i> Education</a>
+    <a href="interest.html"><i class="fa fa-fw fa-heart"></i> Interests</a>
+
+    <!-- More Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-fw fa-bars"></i> More</button>
+      <div class="dropdown-content">
+        <a href="achivement.html">Achievement</a>
+        <a href="skills.html">Skills</a>
+        <a href="activities.html">Activities</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

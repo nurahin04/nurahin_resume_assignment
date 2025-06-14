@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family:"Courier New", Courier, monospace;
+            background-image: url('https://media1.tenor.com/m/-cYlUWc9_RAAAAAC/pastel-pink-wave.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4d2c3d;
+        }
+
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffd4f1;
+            box-shadow: 0 4px 10px rgb(0, 0, 0);
+        }
+
+        td, th {
+            padding: 15px;
+            border: 1px solid #eafae0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button, .back-button {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        button:hover, .back-button:hover {
+            background-color: #d94d99;
+        }
+
+        .form-button {
+            text-align: right;
+        }
+
+        .back-button-wrapper {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Me</h1>
+
+    <!-- Contact Info Table -->
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>Siti Nurahin binti Buseman</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><a href="mailto:sitinurahin18@gmail.com">sitinurahin18@gmail.com</a></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><a href="tel:+60199435446">+60 019 943 5446</a></td>
+        </tr>
+    </table>
+
+    <h2>Send Me a Message</h2>
+
+    <!-- Contact Form Table -->
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <td>Your Name:</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td>Your Email:</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+            <tr>
+                <td>Your Message:</td>
+                <td><textarea name="message" rows="5" required></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="form-button"><button type="submit">Send</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <!-- Back to Home Button -->
+    <div class="back-button-wrapper">
+        <a href="sitinurahin.html" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>

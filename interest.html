@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Interests</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background-image: url('https://media.tenor.com/W_NQa5WLRrIAAAAM/powerpuff-girls-spinning.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: #5f4b50;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 60px 20px 20px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            color: #ac1173;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .interest-card {
+            background-color: #fff0f5;
+            border-radius: 20px;
+            padding: 30px;
+            width: 250px;
+            box-shadow: 0 8px 20px rgb(0, 0, 0);
+            transition: transform 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .emoji {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #aa336a;
+        }
+
+        .desc {
+            font-size: 15px;
+            color: #5f4b50;
+            margin-bottom: 10px;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            text-decoration: none;
+            color: #d63384;
+            background-color: #ffe0ef;
+            padding: 6px 12px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .link:hover {
+            background-color: #f5c8db;
+        }
+
+        .back-button-wrapper {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .back-button {
+            background-color: #ffcce0;
+            color: #5f4b50;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #f8b4cc;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .interest-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>My Interests</h1>
+
+        <div class="interests">
+            <!-- Reading -->
+            <div class="interest-card">
+                <div class="emoji">📚</div>
+                <div class="title">Reading</div>
+                <div class="desc">I absolutely love diving into romantic novels. They’re like my sweet little getaway from the everyday hustle. Everyone has that one author who speaks to their heart, and for me, it’s the amazing local writer, Anjell. Here are my top 4 favorite novels from her that I just can’t get enough of!</div>
+                <a class="link" href="https://www.goodreads.com/book/show/34940195-dr-alpha-male" target="_blank">Dr.Alpha Male</a>
+                <a class="link" href="https://www.goodreads.com/book/show/40040526-dheo-s" target="_blank">Dheo's</a>
+                <a class="link" href="https://www.goodreads.com/book/show/53884362-dia-tetap-sempurna" target="_blank">Dia tetap sempurna</a>
+                <a class="link" href="https://www.goodreads.com/book/show/74953463-rose-s" target="_blank">Rose's</a>
+            </div>
+
+            <!-- Music -->
+            <div class="interest-card">
+                <div class="emoji">🎵</div>
+                <div class="title">Music</div>
+                <div class="desc">Music lifts my mood and helps me focus. I'm a true music explorer. I listen to songs in all kinds of languages, from different countries. Say yes to multi-genre listener! Here are a few of my favorite songs.</div>
+                <a class="link" href="https://open.spotify.com/track/5THepVv09GWpRYyaEIGPT4?si=b10ebf67bc7b4c23" target="_blank">Aku Ada - Putri Dahlia and Zaki Yamani</a>
+                <a class="link" href="https://open.spotify.com/track/6dOtVTDdiauQNBQEDOtlAB?si=88ff01e5e4aa4924" target="_blank">Birds Of A Feather - Billie Eilish</a>
+                <a class="link" href="https://open.spotify.com/track/0eFMbKCRw8KByXyWBw8WO7?si=d2861c107eb048ac" target="_blank">Still With You - Jungkook</a>
+                <a class="link" href="https://open.spotify.com/track/2TkmosdPkJXcjhvMzscrYP?si=84ebbf52f4854f40" target="_blank">Bi Sahara - Abeer Nehme</a>
+                <a class="link" href="https://open.spotify.com/track/4qbi9JDziBh3cxi9SFUbeu?si=04e855e4954243a4" target="_blank">Baila Morena - Hector and Tito</a>
+            </div>
+
+            <!-- Photography -->
+            <div class="interest-card">
+                <div class="emoji">📷</div>
+                <div class="title">Photography</div>
+                <div class="desc">I really love photography. It’s my way of capturing life’s beautiful moments and stories. Every photo I take holds a special memory or feeling. Here are some of my favorite shots from different styles and places I’ve explored.</div>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-48-09.jpg">View My Photo 1</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_23-44-03.jpg">View My Photo 2</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-48-09 (5).jpg">View My Photo 3</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-48-09 (2).jpg">View My Photo 4</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-48-09 (3).jpg">View My Photo 5</a>
+            </div>
+
+            <!-- Art -->
+            <div class="interest-card">
+                <div class="emoji">🎨</div>
+                <div class="title">Art</div>
+                <div class="desc">I’m passionate about art. It’s how I express my imagination and emotions. Each piece I create reflects a part of my story and mood. Here are some of my favorite artworks that showcase different styles and inspirations.</div>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-52-57 (4).jpg">View My Artwork 1</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-52-57 (3).jpg">View My Artwork 2</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-52-57 (2).jpg">View My Artwork 3</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-52-57 (5).jpg">View My Artwork 4</a>
+                <a class="link" href="c:\Users\User\OneDrive\Pictures\GAMBAR TELE\photo_2025-06-08_22-52-57.jpg">View My Artwork 5</a>
+            </div>
+        </div>
+
+        <!-- Back to Home Button -->
+        <div class="back-button-wrapper">
+            <a href="sitinurahin.html" class="back-button">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
